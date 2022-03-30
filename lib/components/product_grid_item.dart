@@ -4,8 +4,8 @@ import 'package:standup_gym_store/models/cart.dart';
 import 'package:standup_gym_store/models/product.dart';
 import 'package:standup_gym_store/utils/app_routes.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({Key? key}) : super(key: key);
+class ProductGridItem extends StatelessWidget {
+  const ProductGridItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +44,25 @@ class ProductItem extends StatelessWidget {
           ),
           trailing: IconButton(
             color: Colors.black,
-            onPressed: () {
-              cart.addItem(product);
-            },
             icon: Icon(
               Icons.add_shopping_cart_outlined,
               color: Theme.of(context).colorScheme.secondary,
             ),
+            onPressed: () {
+              cart.addItem(product);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text('Product added successfully!'),
+                  duration: const Duration(seconds: 2),
+                  action: SnackBarAction(
+                    label: 'UNDO',
+                    onPressed: () {
+                      cart.removeSingleItem(product.id);
+                    },
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),
