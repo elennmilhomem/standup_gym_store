@@ -40,15 +40,14 @@ class ProductsPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: ListView.builder(
-            itemCount: products.itemsCount,
-            itemBuilder: (context, index) => Column(
-                  children: [
-                    ProductItem(product: products.items[index]),
-                    const Divider(
-                      color: Colors.white,
-                    ),
-                  ],
-                )),
+          itemCount: products.itemsCount,
+          itemBuilder: (context, index) => Column(
+            children: [
+              ProductItem(product: products.items[index]),
+              const Divider(),
+            ],
+          ),
+        ),
       ),
     );
   }
