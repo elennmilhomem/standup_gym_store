@@ -7,27 +7,35 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
+      backgroundColor: const Color(0xFF252422),
+      elevation: 0,
       child: Column(
         children: [
           AppBar(
+            iconTheme: const IconThemeData(
+              color: Color(0xFFCCC5B9),
+            ),
+            elevation: 0,
             title: const Text(
               'WELCOME USER!',
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(
+                fontSize: 25,
+                color: Color(0xFFFFFCF2),
+              ),
             ),
             automaticallyImplyLeading: false,
           ),
           const Divider(),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.store,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color(0xFFCCC5B9),
             ),
-            title: const Text(
+            title: Text(
               'STORE',
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             onTap: () {
@@ -38,15 +46,15 @@ class AppDrawer extends StatelessWidget {
             color: Colors.white,
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.payment,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color(0xFFCCC5B9),
             ),
-            title: const Text(
+            title: Text(
               'ORDERED',
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             onTap: () {
@@ -57,15 +65,15 @@ class AppDrawer extends StatelessWidget {
             color: Colors.white,
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.edit,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color(0xFFCCC5B9),
             ),
-            title: const Text(
+            title: Text(
               'MANAGE PRODUCTS',
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             onTap: () {

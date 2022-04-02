@@ -16,7 +16,7 @@ class ProductDetailPage extends StatelessWidget {
         title: Text(
           product.name,
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 25,
           ),
         ),
         centerTitle: true,

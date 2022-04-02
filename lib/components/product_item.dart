@@ -9,31 +9,35 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      tileColor: const Color(0xFF252422),
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(product.imageUrl),
+        backgroundImage: NetworkImage(
+          product.imageUrl,
+          scale: 18,
+        ),
       ),
       title: Text(
         product.name,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.secondary,
           fontSize: 20,
         ),
       ),
-      trailing: Container(
+      trailing: SizedBox(
         width: 100,
         child: Row(
           children: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.edit,
-                color: Theme.of(context).colorScheme.secondary,
+                color: Color(0xFFCCC5B9),
               ),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.delete_outline,
-                color: Theme.of(context).errorColor,
+                color: Color(0xFFF36464),
               ),
               onPressed: () {},
             ),

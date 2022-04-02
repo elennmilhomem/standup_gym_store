@@ -26,31 +26,37 @@ class ProductsOverviewPage extends StatelessWidget {
         elevation: 0,
         title: const Text(
           'STANDUP GYM STORE',
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(
+            fontSize: 25,
+            color: Color(0xFFFFFCF2),
+          ),
         ),
         actions: [
           PopupMenuButton(
-            color: const Color(0XFFC7653B),
+            color: const Color(0XFF252422),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            icon: const Icon(Icons.filter_alt_outlined),
+            icon: const Icon(
+              Icons.filter_alt_outlined,
+              color: Color(0xFFCCC5B9),
+            ),
             itemBuilder: (_) => [
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: Text(
                   'ONLY FAVORITES',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                     fontSize: 20,
                   ),
                 ),
                 value: FilterOptions.Favorite,
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: Text(
                   'ALL',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                     fontSize: 20,
                   ),
                 ),
@@ -70,7 +76,10 @@ class ProductsOverviewPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRoutes.CART);
               },
-              icon: const Icon(Icons.shopping_cart_outlined),
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Color(0xFFCCC5B9),
+              ),
             ),
             builder: (context, cart, child) {
               return Badge(

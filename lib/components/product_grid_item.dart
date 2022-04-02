@@ -28,7 +28,7 @@ class ProductGridItem extends StatelessWidget {
           },
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black54,
+          backgroundColor: const Color(0xFF252422),
           leading: IconButton(
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
@@ -36,25 +36,37 @@ class ProductGridItem extends StatelessWidget {
             },
             icon: Icon(
               product.isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: const Color(0xFFCCC5B9),
             ),
           ),
           title: Text(
             product.name,
             textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary,
+              fontFamily: 'Bebas Neue',
+              fontSize: 20,
+            ),
           ),
           trailing: IconButton(
             color: Colors.black,
-            icon: Icon(
+            icon: const Icon(
               Icons.add_shopping_cart_outlined,
-              color: Theme.of(context).colorScheme.secondary,
+              color: Color(0xFFCCC5B9),
             ),
             onPressed: () {
               cart.addItem(product);
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: const Text('Product added successfully!'),
-                  duration: const Duration(seconds: 2),
+                  content: const Text(
+                    'PRODUCT ADDED SUCESSFULLY!',
+                    style: TextStyle(
+                      fontFamily: 'Bebas Neue',
+                      fontSize: 20,
+                    ),
+                  ),
+                  duration: const Duration(seconds: 1),
                   action: SnackBarAction(
                     label: 'UNDO',
                     onPressed: () {

@@ -13,9 +13,10 @@ class OrdersPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text(
           'MY ORDERS',
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
       ),

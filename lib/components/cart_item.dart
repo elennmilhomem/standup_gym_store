@@ -14,11 +14,11 @@ class CartItemWidget extends StatelessWidget {
       key: ValueKey(cartItem.id),
       direction: DismissDirection.endToStart,
       background: Container(
-        color: Theme.of(context).errorColor,
+        color: const Color(0xFFF36464),
         child: const Icon(
-          Icons.delete,
-          color: Colors.white,
-          size: 40,
+          Icons.delete_outline,
+          color: Color(0xFFFFFCF2),
+          size: 30,
         ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
@@ -31,25 +31,28 @@ class CartItemWidget extends StatelessWidget {
         return showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
+            backgroundColor: const Color(0xFF403D39),
             title: const Text(
               'ARE YOU SURE?',
               style: TextStyle(
                 fontSize: 25,
+                color: Color(0xFFFFFCF2),
               ),
             ),
             content: const Text(
               'WANT TO REMOVE ITEM FROM CART?',
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 23,
+                color: Color(0xFFFFFCF2),
               ),
             ),
             actions: [
               TextButton(
-                child: const Text(
+                child: Text(
                   'NO',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 20,
                   ),
                 ),
                 onPressed: () {
@@ -62,11 +65,11 @@ class CartItemWidget extends StatelessWidget {
                 ),
               ),
               TextButton(
-                child: const Text(
+                child: Text(
                   'YES',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 20,
                   ),
                 ),
                 onPressed: () {
@@ -89,7 +92,7 @@ class CartItemWidget extends StatelessWidget {
         ).removeItem(cartItem.productId);
       },
       child: Card(
-        color: Theme.of(context).colorScheme.secondary,
+        color: const Color(0xFF252422),
         margin: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 4,
@@ -99,22 +102,22 @@ class CartItemWidget extends StatelessWidget {
           child: ListTile(
             title: Text(
               cartItem.name,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
                 fontSize: 20,
               ),
             ),
             subtitle: Text(
               'TOTAL: R\$ ${cartItem.price * cartItem.quantity}',
               style: const TextStyle(
-                color: Colors.white,
+                color: Color(0xFFCCC5B9),
                 fontSize: 20,
               ),
             ),
             trailing: Text(
               '${cartItem.quantity}x',
               style: const TextStyle(
-                color: Colors.white,
+                color: Color(0xFFCCC5B9),
                 fontSize: 20,
               ),
             ),
@@ -123,7 +126,12 @@ class CartItemWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: FittedBox(
-                  child: Text('${cartItem.price}'),
+                  child: Text(
+                    '${cartItem.price}',
+                    style: const TextStyle(
+                      color: Color(0xFFFFFCF2),
+                    ),
+                  ),
                 ),
               ),
             ),

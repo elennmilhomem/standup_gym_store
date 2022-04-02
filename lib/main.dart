@@ -36,11 +36,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.black,
-            //const Color.fromARGB(255, 40, 41, 42),
-            secondary: const Color(0XFFC7653B),
+            primary: const Color(0xFF403D39),
+            secondary: const Color(0XFFFFA443),
           ),
-          scaffoldBackgroundColor: Colors.black,
+          scaffoldBackgroundColor: const Color(0xFF403D39),
           fontFamily: 'Bebas Neue',
         ),
         routes: {

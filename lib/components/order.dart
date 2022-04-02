@@ -17,19 +17,23 @@ class _OrderWidgetState extends State<OrderWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: const Color(0xFF252422),
       child: Column(
         children: [
           ListTile(
             title: Text(
               'R\$ ${widget.order.total.toStringAsFixed(2)}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
-                color: Theme.of(context).colorScheme.secondary,
+                color: Color(0xFFFFFCF2),
               ),
             ),
             subtitle: Text(
               DateFormat('dd/MM/yyyy hh:mm').format(widget.order.date),
-              style: const TextStyle(fontSize: 18),
+              style: const TextStyle(
+                fontSize: 18,
+                color: Color(0xFFCCC5B9),
+              ),
             ),
             trailing: IconButton(
               icon: Icon(
@@ -58,15 +62,16 @@ class _OrderWidgetState extends State<OrderWidget> {
                       children: [
                         Text(
                           product.name,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 20,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
                         Text(
                           '${product.quantity}x  R\$ ${product.price}',
                           style: const TextStyle(
                             fontSize: 20,
-                            color: Colors.grey,
+                            color: Color(0xFFCCC5B9),
                           ),
                         )
                       ],

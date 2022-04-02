@@ -14,11 +14,12 @@ class ProductsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(
               Icons.add,
-              color: Colors.white,
+              color: Color(0xFFCCC5B9),
             ),
             onPressed: () {
               Navigator.of(context).pushNamed(
@@ -31,7 +32,7 @@ class ProductsPage extends StatelessWidget {
         title: const Text(
           'Manage Products',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 25,
           ),
         ),
       ),

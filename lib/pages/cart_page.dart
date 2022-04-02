@@ -14,28 +14,29 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         centerTitle: true,
         title: const Text(
           'CART',
-          style: TextStyle(
-            fontSize: 30,
-          ),
+          style: TextStyle(fontSize: 25, color: Color(0xFFFFFCF2)),
         ),
       ),
       body: Column(
         children: [
           Card(
+            color: const Color(0xFF252422),
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'TOTAL',
                     style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'Bebas Neue',
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(
@@ -46,7 +47,7 @@ class CartPage extends StatelessWidget {
                     label: Text(
                       'R\$ ${cart.totalAmount.toStringAsFixed(2)}',
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFFFFFCF2),
                         fontFamily: 'Bebas Neue',
                         fontSize: 19,
                       ),
@@ -57,15 +58,15 @@ class CartPage extends StatelessWidget {
                     child: const Text(
                       'BUY',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF252422),
                         fontFamily: 'Bebas Neue',
                         fontSize: 20,
                       ),
                     ),
                     style: TextButton.styleFrom(
-                        textStyle: const TextStyle(),
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary),
+                      textStyle: const TextStyle(),
+                      backgroundColor: const Color(0xFFFFA443),
+                    ),
                     onPressed: () {
                       Provider.of<OrderList>(
                         context,
