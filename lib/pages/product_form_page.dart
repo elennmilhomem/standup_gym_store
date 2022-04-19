@@ -18,7 +18,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
   final _imageUrlController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  final _formData = Map<String, Object>();
+  final _formData = <String, Object>{};
 
   @override
   void initState() {
@@ -127,6 +127,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 },
               ),
               TextFormField(
+                style: const TextStyle(
+                  color: Color(
+                    0xFFFFFCF2,
+                  ),
+                ),
                 decoration: InputDecoration(
                   labelText: 'Price',
                   enabledBorder: UnderlineInputBorder(
@@ -144,13 +149,17 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocus);
                 },
-                onSaved: (price) =>
-                    _formData['price'] = double.parse(price ?? '0'),
+                onSaved: (price) => _formData['price'] =
+                    double.tryParse(price ?? '0') as Object,
                 validator: (_price) {
                   final priceString = _price ?? '';
-                  final price = double.tryParse(priceString) ?? -1;
+                  try {
+                    final price = double.tryParse(priceString) ?? -1;
 
-                  if (price <= 0) {
+                    if (price <= 0) {
+                      return 'Enter a valid price';
+                    }
+                  } catch (error) {
                     return 'Enter a valid price';
                   }
 
