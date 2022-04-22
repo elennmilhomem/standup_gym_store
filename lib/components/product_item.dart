@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/product.dart';
+import 'package:standup_gym_store/models/product_list.dart';
 import 'package:standup_gym_store/utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
@@ -45,7 +47,12 @@ class ProductItem extends StatelessWidget {
                 Icons.delete_outline,
                 color: Color(0xFFF36464),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<ProductList>(
+                  context,
+                  listen: false,
+                ).removeProduct(product);
+              },
             ),
           ],
         ),
