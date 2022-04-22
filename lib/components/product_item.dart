@@ -48,10 +48,61 @@ class ProductItem extends StatelessWidget {
                 color: Color(0xFFF36464),
               ),
               onPressed: () {
-                Provider.of<ProductList>(
-                  context,
-                  listen: false,
-                ).removeProduct(product);
+                showDialog<bool>(
+                  barrierDismissible: true,
+                  context: context,
+                  builder: (context) => Theme(
+                    data: Theme.of(context).copyWith(
+                      dialogBackgroundColor:
+                          Theme.of(context).colorScheme.primary,
+                    ),
+                    child: AlertDialog(
+                      title: Text(
+                        'Delete Product',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontSize: 20,
+                        ),
+                      ),
+                      content: Text(
+                        'Are you sure?',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontSize: 20,
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          child: Text(
+                            'No',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 20,
+                            ),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(false),
+                        ),
+                        TextButton(
+                          child: Text(
+                            'Yes',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 20,
+                            ),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ],
+                    ),
+                  ),
+                ).then((value) {
+                  if (value ?? false) {
+                    Provider.of<ProductList>(
+                      context,
+                      listen: false,
+                    ).removeProduct(product);
+                  }
+                });
               },
             ),
           ],
