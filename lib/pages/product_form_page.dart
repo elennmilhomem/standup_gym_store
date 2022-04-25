@@ -284,11 +284,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
                               fontSize: 16,
                             ),
                           )
-                        : FittedBox(
-                            child: Image.network(
-                              _imageUrlController.text,
+                        : SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: FittedBox(
+                              child: Image.network(
+                                _imageUrlController.text,
+                              ),
+                              fit: BoxFit.contain,
                             ),
-                            fit: BoxFit.fill,
                           ),
                   ),
                 ],
