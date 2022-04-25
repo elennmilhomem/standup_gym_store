@@ -10,6 +10,8 @@ class ProductFormPage extends StatefulWidget {
   State<ProductFormPage> createState() => _ProductFormPageState();
 }
 
+final _formKey = GlobalKey<FormState>();
+
 class _ProductFormPageState extends State<ProductFormPage> {
   final _priceFocus = FocusNode();
   final _descriptionFocus = FocusNode();
@@ -17,7 +19,6 @@ class _ProductFormPageState extends State<ProductFormPage> {
   final _imageUrlFocus = FocusNode();
   final _imageUrlController = TextEditingController();
 
-  final _formKey = GlobalKey<FormState>();
   final _formData = <String, Object>{};
 
   @override
@@ -284,15 +285,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
                               fontSize: 16,
                             ),
                           )
-                        : SizedBox(
-                            width: 100,
-                            height: 100,
-                            child: FittedBox(
-                              child: Image.network(
-                                _imageUrlController.text,
-                              ),
-                              fit: BoxFit.contain,
-                            ),
+                        : Image.network(
+                            _imageUrlController.text,
                           ),
                   ),
                 ],
