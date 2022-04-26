@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/product.dart';
 import 'package:standup_gym_store/models/product_list.dart';
@@ -116,10 +117,12 @@ class _ProductFormPageState extends State<ProductFormPage> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          'Product Form',
-          style: TextStyle(
-            fontSize: 25,
+        title: Text(
+          'FORMULÁRIO DO PRODUTO',
+          style: GoogleFonts.titilliumWeb(
+            textStyle: const TextStyle(
+              fontSize: 20,
+            ),
           ),
         ),
         actions: [
@@ -140,22 +143,26 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 child: ListView(
                   children: [
                     TextFormField(
-                      style: const TextStyle(
-                        color: Color(
-                          0xFFFFFCF2,
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          color: Color(
+                            0xFFFFFCF2,
+                          ),
                         ),
                       ),
                       initialValue: _formData['name']?.toString(),
                       decoration: InputDecoration(
-                        labelText: 'Name',
+                        labelText: 'NOME',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
-                        labelStyle: TextStyle(
-                          fontSize: 25,
-                          color: Theme.of(context).colorScheme.secondary,
+                        labelStyle: GoogleFonts.titilliumWeb(
+                          textStyle: TextStyle(
+                            fontSize: 18,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ),
                       ),
                       textInputAction: TextInputAction.next,
@@ -167,30 +174,34 @@ class _ProductFormPageState extends State<ProductFormPage> {
                         final name = _name ?? '';
 
                         if (name.trim().isEmpty) {
-                          return 'The name is mandatory';
+                          return 'O nome é obrigatório';
                         }
                         if (name.trim().length < 3) {
-                          return 'Name needs at least three letters';
+                          return 'O nome precisa de no mínimo três letras';
                         }
                         return null;
                       },
                     ),
                     TextFormField(
-                      style: const TextStyle(
-                        color: Color(
-                          0xFFFFFCF2,
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          color: Color(
+                            0xFFFFFCF2,
+                          ),
                         ),
                       ),
                       initialValue: _formData['price']?.toString(),
                       decoration: InputDecoration(
-                        labelText: 'Price',
+                        labelText: 'PREÇO',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Theme.of(context).colorScheme.secondary),
                         ),
-                        labelStyle: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).colorScheme.secondary,
+                        labelStyle: GoogleFonts.titilliumWeb(
+                          textStyle: TextStyle(
+                            fontSize: 18,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ),
                       ),
                       textInputAction: TextInputAction.next,
@@ -207,31 +218,35 @@ class _ProductFormPageState extends State<ProductFormPage> {
                           final price = double.tryParse(priceString) ?? -1;
 
                           if (price <= 0) {
-                            return 'Enter a valid price';
+                            return 'Insira um preço válido';
                           }
                         } catch (error) {
-                          return 'Enter a valid price';
+                          return 'Insira um preço válido';
                         }
 
                         return null;
                       },
                     ),
                     TextFormField(
-                      style: const TextStyle(
-                        color: Color(
-                          0xFFFFFCF2,
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          color: Color(
+                            0xFFFFFCF2,
+                          ),
                         ),
                       ),
                       initialValue: _formData['description']?.toString(),
                       decoration: InputDecoration(
-                        labelText: 'Description',
+                        labelText: 'DESCRIÇÃO',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Theme.of(context).colorScheme.secondary),
                         ),
-                        labelStyle: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).colorScheme.secondary,
+                        labelStyle: GoogleFonts.titilliumWeb(
+                          textStyle: TextStyle(
+                            fontSize: 18,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ),
                       ),
                       focusNode: _descriptionFocus,
@@ -243,10 +258,10 @@ class _ProductFormPageState extends State<ProductFormPage> {
                         final description = _description ?? '';
 
                         if (description.trim().isEmpty) {
-                          return 'The description is mandatory';
+                          return 'Uma descrição é obrigatória';
                         }
                         if (description.trim().length < 3) {
-                          return 'Description needs at least ten letters';
+                          return 'A descrição precisa de no mínimo 10 letras';
                         }
                         return null;
                       },
@@ -256,22 +271,27 @@ class _ProductFormPageState extends State<ProductFormPage> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            style: const TextStyle(
-                              color: Color(
-                                0xFFFFFCF2,
+                            style: GoogleFonts.titilliumWeb(
+                              textStyle: const TextStyle(
+                                color: Color(
+                                  0xFFFFFCF2,
+                                ),
                               ),
                             ),
                             decoration: InputDecoration(
-                              labelText: 'Image URL',
+                              labelText: 'URL DA IMAGEM',
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Theme.of(context)
                                         .colorScheme
                                         .secondary),
                               ),
-                              labelStyle: TextStyle(
-                                fontSize: 20,
-                                color: Theme.of(context).colorScheme.secondary,
+                              labelStyle: GoogleFonts.titilliumWeb(
+                                textStyle: TextStyle(
+                                  fontSize: 18,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
                               ),
                             ),
                             textInputAction: TextInputAction.done,
@@ -284,7 +304,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                             validator: (_imageUrl) {
                               final imageUrl = _imageUrl ?? '';
                               if (!isValidImageUrl(imageUrl)) {
-                                return 'Please, provide a valid url';
+                                return 'Por favor, insira uma url válida';
                               }
                               return null;
                             },
@@ -307,13 +327,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
                           ),
                           alignment: Alignment.center,
                           child: _imageUrlController.text.isEmpty
-                              ? const Text(
-                                  'Inform the url',
-                                  style: TextStyle(
-                                    color: Color(
-                                      0xFFFFFCF2,
+                              ? Text(
+                                  'INFORME A URL',
+                                  style: GoogleFonts.titilliumWeb(
+                                    textStyle: const TextStyle(
+                                      color: Color(
+                                        0xFFFFFCF2,
+                                      ),
+                                      fontSize: 13,
                                     ),
-                                    fontSize: 16,
                                   ),
                                 )
                               : Image.network(

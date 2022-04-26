@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/cart.dart';
 import 'package:standup_gym_store/models/product.dart';
@@ -42,10 +43,11 @@ class ProductGridItem extends StatelessWidget {
           title: Text(
             product.name,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
-              fontFamily: 'Bebas Neue',
-              fontSize: 20,
+            style: GoogleFonts.titilliumWeb(
+              textStyle: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+                fontSize: 18,
+              ),
             ),
           ),
           trailing: IconButton(
@@ -59,16 +61,17 @@ class ProductGridItem extends StatelessWidget {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: const Text(
-                    'PRODUCT ADDED SUCESSFULLY!',
-                    style: TextStyle(
-                      fontFamily: 'Bebas Neue',
-                      fontSize: 20,
+                  content: Text(
+                    'PRODUTO ADICIONADO COM SUCESSO!',
+                    style: GoogleFonts.titilliumWeb(
+                      textStyle: const TextStyle(
+                        fontSize: 13,
+                      ),
                     ),
                   ),
                   duration: const Duration(seconds: 1),
                   action: SnackBarAction(
-                    label: 'UNDO',
+                    label: 'DESFAZER',
                     onPressed: () {
                       cart.removeSingleItem(product.id);
                     },

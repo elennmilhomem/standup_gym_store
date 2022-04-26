@@ -33,14 +33,13 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'STANDUP GYM',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: const Color(0xFF403D39),
             secondary: const Color(0XFFFFA443),
           ),
           scaffoldBackgroundColor: const Color(0xFF403D39),
-          fontFamily: 'Bebas Neue',
         ),
         routes: {
           AppRoutes.HOME: (context) => const ProductsOverviewPage(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/product.dart';
 import 'package:standup_gym_store/models/product_list.dart';
@@ -21,9 +22,11 @@ class ProductItem extends StatelessWidget {
       ),
       title: Text(
         product.name,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.secondary,
-          fontSize: 20,
+        style: GoogleFonts.titilliumWeb(
+          textStyle: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+            fontSize: 18,
+          ),
         ),
       ),
       trailing: SizedBox(
@@ -58,39 +61,59 @@ class ProductItem extends StatelessWidget {
                     ),
                     child: AlertDialog(
                       title: Text(
-                        'Delete Product',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 20,
+                        'DELETAR PRODUTO',
+                        style: GoogleFonts.titilliumWeb(
+                          textStyle: const TextStyle(
+                            color: Color(0xFFFFFCF2),
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       content: Text(
-                        'Are you sure?',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 20,
+                        'VOCÊ TEM CERTEZA?',
+                        style: GoogleFonts.titilliumWeb(
+                          textStyle: const TextStyle(
+                            color: Color(0xFFFFFCF2),
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                       actions: [
                         TextButton(
                           child: Text(
-                            'No',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.secondary,
-                              fontSize: 20,
+                            'NÃO',
+                            style: GoogleFonts.titilliumWeb(
+                              textStyle: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           onPressed: () => Navigator.of(context).pop(false),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
                         ),
                         TextButton(
                           child: Text(
-                            'Yes',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.secondary,
-                              fontSize: 20,
+                            'SIM',
+                            style: GoogleFonts.titilliumWeb(
+                              textStyle: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           onPressed: () => Navigator.of(context).pop(true),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
                         ),
                       ],
                     ),

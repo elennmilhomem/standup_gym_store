@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/components/cart_item.dart';
 import 'package:standup_gym_store/models/cart.dart';
@@ -16,9 +17,14 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          'CART',
-          style: TextStyle(fontSize: 25, color: Color(0xFFFFFCF2)),
+        title: Text(
+          'CARRINHO',
+          style: GoogleFonts.titilliumWeb(
+            textStyle: const TextStyle(
+              fontSize: 20,
+              color: Color(0xFFFFFCF2),
+            ),
+          ),
         ),
       ),
       body: Column(
@@ -33,10 +39,11 @@ class CartPage extends StatelessWidget {
                 children: [
                   Text(
                     'TOTAL',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Bebas Neue',
-                      color: Theme.of(context).colorScheme.secondary,
+                    style: GoogleFonts.titilliumWeb(
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -46,21 +53,23 @@ class CartPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     label: Text(
                       'R\$ ${cart.totalAmount.toStringAsFixed(2)}',
-                      style: const TextStyle(
-                        color: Color(0xFFFFFCF2),
-                        fontFamily: 'Bebas Neue',
-                        fontSize: 19,
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          color: Color(0xFFFFFCF2),
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ),
                   const Spacer(),
                   TextButton(
-                    child: const Text(
-                      'BUY',
-                      style: TextStyle(
-                        color: Color(0xFF252422),
-                        fontFamily: 'Bebas Neue',
-                        fontSize: 20,
+                    child: Text(
+                      'COMPRAR',
+                      style: GoogleFonts.titilliumWeb(
+                        textStyle: const TextStyle(
+                          color: Color(0xFF252422),
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                     style: TextButton.styleFrom(

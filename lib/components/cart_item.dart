@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/cart.dart';
 import 'package:standup_gym_store/models/cart_item.dart';
@@ -32,27 +33,34 @@ class CartItemWidget extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             backgroundColor: const Color(0xFF403D39),
-            title: const Text(
-              'ARE YOU SURE?',
-              style: TextStyle(
-                fontSize: 25,
-                color: Color(0xFFFFFCF2),
+            title: Text(
+              'VOCÊ TEM CERTEZA?',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFFFFFCF2),
+                ),
               ),
             ),
-            content: const Text(
-              'WANT TO REMOVE ITEM FROM CART?',
-              style: TextStyle(
-                fontSize: 23,
-                color: Color(0xFFFFFCF2),
+            content: Text(
+              'QUER REMOVER UM ITEM DO CARRINHO?',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                  color: Color(0xFFFFFCF2),
+                ),
               ),
             ),
             actions: [
               TextButton(
                 child: Text(
-                  'NO',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 20,
+                  'NÃO',
+                  style: GoogleFonts.titilliumWeb(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 onPressed: () {
@@ -66,10 +74,13 @@ class CartItemWidget extends StatelessWidget {
               ),
               TextButton(
                 child: Text(
-                  'YES',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 20,
+                  'SIM',
+                  style: GoogleFonts.titilliumWeb(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 onPressed: () {
@@ -102,23 +113,29 @@ class CartItemWidget extends StatelessWidget {
           child: ListTile(
             title: Text(
               cartItem.name,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
-                fontSize: 20,
+              style: GoogleFonts.titilliumWeb(
+                textStyle: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                  fontSize: 18,
+                ),
               ),
             ),
             subtitle: Text(
-              'TOTAL: R\$ ${cartItem.price * cartItem.quantity}',
-              style: const TextStyle(
-                color: Color(0xFFCCC5B9),
-                fontSize: 20,
+              'TOTAL:  R\$ ${cartItem.price * cartItem.quantity}',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  color: Color(0xFFCCC5B9),
+                  fontSize: 16,
+                ),
               ),
             ),
             trailing: Text(
               '${cartItem.quantity}x',
-              style: const TextStyle(
-                color: Color(0xFFCCC5B9),
-                fontSize: 20,
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  color: Color(0xFFCCC5B9),
+                  fontSize: 16,
+                ),
               ),
             ),
             leading: CircleAvatar(
@@ -128,8 +145,11 @@ class CartItemWidget extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     '${cartItem.price}',
-                    style: const TextStyle(
-                      color: Color(0xFFFFFCF2),
+                    style: GoogleFonts.titilliumWeb(
+                      textStyle: const TextStyle(
+                        color: Color(0xFFFFFCF2),
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),

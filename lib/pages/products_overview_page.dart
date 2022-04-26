@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/components/app_drawer.dart';
 import 'package:standup_gym_store/components/badge.dart';
@@ -43,11 +44,13 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
         foregroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,
-        title: const Text(
-          'STANDUP GYM STORE',
-          style: TextStyle(
-            fontSize: 25,
-            color: Color(0xFFFFFCF2),
+        title: Text(
+          'STANDUP GYM',
+          style: GoogleFonts.titilliumWeb(
+            textStyle: const TextStyle(
+              fontSize: 20,
+              color: Color(0xFFFFFCF2),
+            ),
           ),
         ),
         actions: [
@@ -63,20 +66,24 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
             itemBuilder: (_) => [
               PopupMenuItem(
                 child: Text(
-                  'ONLY FAVORITES',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 20,
+                  'FAVORITOS',
+                  style: GoogleFonts.titilliumWeb(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
                 value: FilterOptions.Favorite,
               ),
               PopupMenuItem(
                 child: Text(
-                  'ALL',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 20,
+                  'TODOS',
+                  style: GoogleFonts.titilliumWeb(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
                 value: FilterOptions.All,

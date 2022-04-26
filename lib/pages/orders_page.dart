@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/components/app_drawer.dart';
 import 'package:standup_gym_store/components/order.dart';
@@ -14,9 +15,13 @@ class OrdersPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text(
-          'MY ORDERS',
-          style: TextStyle(fontSize: 25),
+        title: Text(
+          'MEUS PEDIDOS',
+          style: GoogleFonts.titilliumWeb(
+            textStyle: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
         ),
         centerTitle: true,
       ),

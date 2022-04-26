@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:standup_gym_store/utils/app_routes.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -16,11 +17,13 @@ class AppDrawer extends StatelessWidget {
               color: Color(0xFFCCC5B9),
             ),
             elevation: 0,
-            title: const Text(
-              'WELCOME USER!',
-              style: TextStyle(
-                fontSize: 25,
-                color: Color(0xFFFFFCF2),
+            title: Text(
+              'BEM VINDO USUÁRIO(A)!',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFFFFFCF2),
+                ),
               ),
             ),
             automaticallyImplyLeading: false,
@@ -32,10 +35,12 @@ class AppDrawer extends StatelessWidget {
               color: Color(0xFFCCC5B9),
             ),
             title: Text(
-              'STORE',
-              style: TextStyle(
-                fontSize: 20,
-                color: Theme.of(context).colorScheme.secondary,
+              'LOJA',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
               ),
             ),
             onTap: () {
@@ -49,10 +54,12 @@ class AppDrawer extends StatelessWidget {
               color: Color(0xFFCCC5B9),
             ),
             title: Text(
-              'ORDERED',
-              style: TextStyle(
-                fontSize: 20,
-                color: Theme.of(context).colorScheme.secondary,
+              'PEDIDOS',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
               ),
             ),
             onTap: () {
@@ -66,10 +73,12 @@ class AppDrawer extends StatelessWidget {
               color: Color(0xFFCCC5B9),
             ),
             title: Text(
-              'MANAGE PRODUCTS',
-              style: TextStyle(
-                fontSize: 20,
-                color: Theme.of(context).colorScheme.secondary,
+              'EDITAR PRODUTOS',
+              style: GoogleFonts.titilliumWeb(
+                textStyle: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
               ),
             ),
             onTap: () {

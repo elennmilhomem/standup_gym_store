@@ -15,6 +15,7 @@ dependencies:
   provider: ^6.0.2
   intl: ^0.17.0
   http: ^0.13.3
+  google_fonts: ^2.3.2
 
   cupertino_icons: ^1.0.2
 
@@ -32,14 +33,11 @@ flutter:
   uses-material-design: true
 
  
-  fonts:
-    - family: Bebas Neue
-      fonts:
-        - asset: assets/fonts/BebasNeue-Regular.ttf
-          weight: 700
-    - family: Anton
-      fonts:
-        - asset: assets/fonts/Anton-Regular.ttf
+  # fonts:
+  # - family: Raleway
+  #    fonts:
+  #     - asset: assets/fonts/Raleway-ExtraLight.ttf
+  #      weight: 200
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

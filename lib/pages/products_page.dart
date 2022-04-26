@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:standup_gym_store/components/app_drawer.dart';
 import 'package:standup_gym_store/components/product_item.dart';
@@ -29,10 +30,12 @@ class ProductsPage extends StatelessWidget {
           )
         ],
         centerTitle: true,
-        title: const Text(
-          'Manage Products',
-          style: TextStyle(
-            fontSize: 25,
+        title: Text(
+          'GERENCIAR PRODUTOS',
+          style: GoogleFonts.titilliumWeb(
+            textStyle: const TextStyle(
+              fontSize: 20,
+            ),
           ),
         ),
       ),

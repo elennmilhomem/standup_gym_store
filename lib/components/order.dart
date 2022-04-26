@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:standup_gym_store/models/order.dart';
 
@@ -23,16 +24,20 @@ class _OrderWidgetState extends State<OrderWidget> {
           ListTile(
             title: Text(
               'R\$ ${widget.order.total.toStringAsFixed(2)}',
-              style: const TextStyle(
-                fontSize: 25,
-                color: Color(0xFFFFFCF2),
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  fontSize: 20,
+                  color: Color(0xFFFFFCF2),
+                ),
               ),
             ),
             subtitle: Text(
               DateFormat('dd/MM/yyyy hh:mm').format(widget.order.date),
-              style: const TextStyle(
-                fontSize: 18,
-                color: Color(0xFFCCC5B9),
+              style: GoogleFonts.titilliumWeb(
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                  color: Color(0xFFCCC5B9),
+                ),
               ),
             ),
             trailing: IconButton(
@@ -62,16 +67,20 @@ class _OrderWidgetState extends State<OrderWidget> {
                       children: [
                         Text(
                           product.name,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Theme.of(context).colorScheme.secondary,
+                          style: GoogleFonts.titilliumWeb(
+                            textStyle: TextStyle(
+                              fontSize: 18,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
                           ),
                         ),
                         Text(
                           '${product.quantity}x  R\$ ${product.price}',
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFCCC5B9),
+                          style: GoogleFonts.titilliumWeb(
+                            textStyle: const TextStyle(
+                              fontSize: 18,
+                              color: Color(0xFFCCC5B9),
+                            ),
                           ),
                         )
                       ],
