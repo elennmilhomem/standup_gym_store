@@ -46,7 +46,7 @@ class ProductGridItem extends StatelessWidget {
             style: GoogleFonts.titilliumWeb(
               textStyle: TextStyle(
                 color: Theme.of(context).colorScheme.secondary,
-                fontSize: 18,
+                fontSize: 14,
               ),
             ),
           ),

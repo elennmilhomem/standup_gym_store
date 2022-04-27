@@ -66,8 +66,8 @@ class CartPage extends StatelessWidget {
                     child: Text(
                       'COMPRAR',
                       style: GoogleFonts.titilliumWeb(
-                        textStyle: const TextStyle(
-                          color: Color(0xFF252422),
+                        textStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: 16,
                         ),
                       ),

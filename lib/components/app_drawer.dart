@@ -47,7 +47,9 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed(AppRoutes.HOME);
             },
           ),
-          const Divider(),
+          const Divider(
+            color: Color(0xFFFFFCF2),
+          ),
           ListTile(
             leading: const Icon(
               Icons.payment,
@@ -66,7 +68,9 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed(AppRoutes.ORDERS);
             },
           ),
-          const Divider(),
+          const Divider(
+            color: Color(0xFFFFFCF2),
+          ),
           ListTile(
             leading: const Icon(
               Icons.edit,
@@ -84,6 +88,9 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pushReplacementNamed(AppRoutes.PRODUCTS);
             },
+          ),
+          const Divider(
+            color: Color(0xFFFFFCF2),
           ),
         ],
       ),

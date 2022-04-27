@@ -141,14 +141,14 @@ class CartItemWidget extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Theme.of(context).colorScheme.primary,
               child: Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(2),
                 child: FittedBox(
                   child: Text(
                     '${cartItem.price}',
                     style: GoogleFonts.titilliumWeb(
                       textStyle: const TextStyle(
                         color: Color(0xFFFFFCF2),
-                        fontSize: 16,
+                        fontSize: 25,
                       ),
                     ),
                   ),
