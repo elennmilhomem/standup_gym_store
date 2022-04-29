@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:standup_gym_store/exceptions/http_exceptions.dart';
 import 'package:standup_gym_store/models/product.dart';
 import 'package:standup_gym_store/models/product_list.dart';
 import 'package:standup_gym_store/utils/app_routes.dart';
@@ -12,6 +13,8 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final message = ScaffoldMessenger.of(context);
+
     return ListTile(
       tileColor: const Color(0xFF252422),
       leading: CircleAvatar(
@@ -118,12 +121,30 @@ class ProductItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                ).then((value) {
+                ).then((value) async {
                   if (value ?? false) {
-                    Provider.of<ProductList>(
-                      context,
-                      listen: false,
-                    ).removeProduct(product);
+                    try {
+                      await Provider.of<ProductList>(
+                        context,
+                        listen: false,
+                      ).removeProduct(product);
+                    } on HttpException catch (error) {
+                      message.showSnackBar(
+                        SnackBar(
+                          duration: const Duration(
+                            seconds: 1,
+                          ),
+                          content: Text(
+                            error.toString(),
+                            style: GoogleFonts.titilliumWeb(
+                              textStyle: const TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
                   }
                 });
               },
