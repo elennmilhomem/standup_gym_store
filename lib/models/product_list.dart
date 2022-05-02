@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:standup_gym_store/exceptions/http_exceptions.dart';
 import 'package:standup_gym_store/models/product.dart';
+import 'package:standup_gym_store/utils/constants.dart';
 
 class ProductList with ChangeNotifier {
-  final _baseUrl =
-      'https://standup-gymstore-default-rtdb.firebaseio.com/products';
   final List<Product> _items = [];
 
   List<Product> get items => [..._items];
@@ -24,7 +23,7 @@ class ProductList with ChangeNotifier {
     _items.clear();
 
     final response = await http.get(
-      Uri.parse('$_baseUrl.json'),
+      Uri.parse('${Constants.PRODUCT_BASE_URL}.json'),
     );
     if (response.body == 'null') return;
     Map<String, dynamic> data = jsonDecode(response.body);
@@ -63,7 +62,7 @@ class ProductList with ChangeNotifier {
 
   Future<void> addProduct(Product product) async {
     final response = await http.post(
-      Uri.parse('$_baseUrl.json'),
+      Uri.parse('${Constants.PRODUCT_BASE_URL}.json'),
       body: jsonEncode(
         {
           "name": product.name,
@@ -94,7 +93,7 @@ class ProductList with ChangeNotifier {
 
     if (index >= 0) {
       await http.patch(
-        Uri.parse('$_baseUrl/${product.id}.json'),
+        Uri.parse('${Constants.PRODUCT_BASE_URL}/${product.id}.json'),
         body: jsonEncode(
           {
             "name": product.name,
@@ -119,7 +118,7 @@ class ProductList with ChangeNotifier {
       notifyListeners();
 
       final response = await http.delete(
-        Uri.parse('$_baseUrl/${product.id}.json'),
+        Uri.parse('${Constants.PRODUCT_BASE_URL}/${product.id}.json'),
       );
 
       if (response.statusCode >= 400) {
