@@ -5,30 +5,11 @@ import 'package:standup_gym_store/components/app_drawer.dart';
 import 'package:standup_gym_store/components/order.dart';
 import 'package:standup_gym_store/models/order_list.dart';
 
-class OrdersPage extends StatefulWidget {
+class OrdersPage extends StatelessWidget {
   const OrdersPage({Key? key}) : super(key: key);
 
   @override
-  State<OrdersPage> createState() => _OrdersPageState();
-}
-
-class _OrdersPageState extends State<OrdersPage> {
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    Provider.of<OrderList>(
-      context,
-      listen: false,
-    ).loadOrders().then((_) {
-      setState(() => _isLoading = false);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final OrderList orders = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -43,14 +24,40 @@ class _OrdersPageState extends State<OrdersPage> {
         centerTitle: true,
       ),
       drawer: const AppDrawer(),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: orders.itemsCount,
-              itemBuilder: (context, index) => OrderWidget(
-                order: orders.items[index],
+      body: FutureBuilder(
+        future: Provider.of<OrderList>(
+          context,
+          listen: false,
+        ).loadOrders(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.error != null) {
+            return Center(
+              child: Text(
+                'Ocorreu um erro!',
+                style: GoogleFonts.titilliumWeb(
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFFFFFCF2),
+                  ),
+                ),
               ),
-            ),
+            );
+          } else {
+            return Consumer<OrderList>(
+              builder: (context, orders, child) => ListView.builder(
+                itemCount: orders.itemsCount,
+                itemBuilder: (context, index) => OrderWidget(
+                  order: orders.items[index],
+                ),
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
