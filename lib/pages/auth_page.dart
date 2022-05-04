@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:standup_gym_store/components/auth_form.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -12,16 +13,7 @@ class AuthPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(241, 144, 9, 1),
-                  Color.fromRGBO(242, 218, 167, 1),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
+            color: Theme.of(context).colorScheme.primary,
           ),
           SizedBox(
             width: double.infinity,
@@ -36,15 +28,24 @@ class AuthPage extends StatelessWidget {
                   ),
                   transform: Matrix4.rotationZ(-8 * pi / 180)..translate(-10.0),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xFF252422),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 10,
-                          color: Colors.black45,
-                          offset: Offset(0, 4),
-                        )
-                      ]),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromRGBO(255, 122, 40, 1),
+                        Color.fromRGBO(255, 173, 50, 1)
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                    color: Theme.of(context).colorScheme.primary,
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 10,
+                        color: Colors.black87,
+                        offset: Offset(0, 4),
+                      )
+                    ],
+                  ),
                   child: Text(
                     'STANDUP GYM',
                     style: GoogleFonts.titilliumWeb(
@@ -55,6 +56,7 @@ class AuthPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                const AuthForm(),
               ],
             ),
           ),
