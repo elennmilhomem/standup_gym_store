@@ -22,10 +22,14 @@ class AuthPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 20,
+                  ),
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
-                    horizontal: 70,
+                    horizontal: 55,
                   ),
+                  // cascade operator
                   transform: Matrix4.rotationZ(-8 * pi / 180)..translate(-10.0),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
