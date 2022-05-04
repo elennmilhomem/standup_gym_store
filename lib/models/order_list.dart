@@ -60,10 +60,10 @@ class OrderList with ChangeNotifier {
           'date': date.toIso8601String(),
           'products': cart.items.values
               .map((cartItem) => {
-                    ' id': cartItem.id,
-                    ' productId': cartItem.productId,
-                    ' name': cartItem.name,
-                    ' quantity': cartItem.quantity,
+                    'id': cartItem.id,
+                    'productId': cartItem.productId,
+                    'name': cartItem.name,
+                    'quantity': cartItem.quantity,
                     'price': cartItem.price,
                   })
               .toList(),
