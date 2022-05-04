@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:standup_gym_store/models/cart.dart';
 import 'package:standup_gym_store/models/order_list.dart';
 import 'package:standup_gym_store/models/product_list.dart';
+import 'package:standup_gym_store/pages/auth_page.dart';
 import 'package:standup_gym_store/pages/cart_page.dart';
 import 'package:standup_gym_store/pages/orders_page.dart';
 import 'package:standup_gym_store/pages/product_detail_page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFF403D39),
         ),
         routes: {
+          AppRoutes.AUTH: (context) => const AuthPage(),
           AppRoutes.HOME: (context) => const ProductsOverviewPage(),
           AppRoutes.PRODUCT_DETAIL: ((context) => const ProductDetailPage()),
           AppRoutes.CART: (context) => const CartPage(),
