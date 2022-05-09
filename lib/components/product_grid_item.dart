@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:standup_gym_store/models/auth.dart';
 import 'package:standup_gym_store/models/cart.dart';
 import 'package:standup_gym_store/models/product.dart';
 import 'package:standup_gym_store/utils/app_routes.dart';
@@ -12,6 +13,7 @@ class ProductGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context, listen: false);
+    final auth = Provider.of<Auth>(context, listen: false);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
@@ -33,7 +35,7 @@ class ProductGridItem extends StatelessWidget {
           leading: IconButton(
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
-              product.toggleFavorite();
+              product.toggleFavorite(auth.token ?? '');
             },
             icon: Icon(
               product.isFavorite ? Icons.favorite : Icons.favorite_border,
